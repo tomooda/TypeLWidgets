@@ -221,7 +221,9 @@ TypeLMeterMorph >> drawOn: aCanvas [
 	| canvas |
 	(form isNil or: [ form extent ~= self extent ])
 		ifTrue: [ form := Form extent: self extent depth: 32.
-			knurlingForm := nil ].
+			knurlingForm := nil.
+			bezelForm := nil.
+			stencilForm := nil ].
 	canvas := form getCanvas.
 	canvas fillColor: Color transparent.
 	self drawKnurlingOn: canvas.
