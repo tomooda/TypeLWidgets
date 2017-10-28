@@ -17,6 +17,21 @@ Class {
 }
 
 { #category : #'instance creation' }
+TypeLMeterRadialUnit class >> bottomLeftRadialFor: aTypeLMeterMorph [
+	^ (self for: aTypeLMeterMorph)
+		minDegree: 110;
+		maxDegree: 160;
+		offset: -0.8 @ -0.8;
+		rNeedleTip: 1.82;
+		rNeedleEnd: 0.0;
+		rMarkTop1: 1.8;
+		rMarkTop2: 1.8;
+		rMarkBottom1: 1.76;
+		rMarkBottom2: 1.70;
+		yourself
+]
+
+{ #category : #'instance creation' }
 TypeLMeterRadialUnit class >> bottomRadialFor: aTypeLMeterMorph [
 	^ (self for: aTypeLMeterMorph)
 		minDegree: 60;
@@ -32,6 +47,21 @@ TypeLMeterRadialUnit class >> bottomRadialFor: aTypeLMeterMorph [
 ]
 
 { #category : #'instance creation' }
+TypeLMeterRadialUnit class >> bottomRightRadialFor: aTypeLMeterMorph [
+	^ (self for: aTypeLMeterMorph)
+		minDegree: 20;
+		maxDegree: 70;
+		offset: 0.8 @ -0.8;
+		rNeedleTip: 1.82;
+		rNeedleEnd: 0.0;
+		rMarkTop1: 1.8;
+		rMarkTop2: 1.8;
+		rMarkBottom1: 1.76;
+		rMarkBottom2: 1.70;
+		yourself
+]
+
+{ #category : #'instance creation' }
 TypeLMeterRadialUnit class >> centerRadialFor: aTypeLMeterMorph [
 	^ (self for: aTypeLMeterMorph)
 		minDegree: 5;
@@ -42,6 +72,37 @@ TypeLMeterRadialUnit class >> centerRadialFor: aTypeLMeterMorph [
 
 { #category : #'instance creation' }
 TypeLMeterRadialUnit class >> rightRadialFor: aTypeLMeterMorph [
+	^ (self for: aTypeLMeterMorph)
+		minDegree: -30;
+		maxDegree: 30;
+		offset: 1.2 @ 0;
+		rNeedleTip: 1.5;
+		rNeedleEnd: 0.0;
+		rMarkTop1: 1.4;
+		rMarkTop2: 1.4;
+		rMarkBottom1: 1.38;
+		rMarkBottom2: 1.35;
+		yourself
+]
+
+{ #category : #'instance creation' }
+TypeLMeterRadialUnit class >> smallBottomRadialFor: aTypeLMeterMorph [
+	^ (self for: aTypeLMeterMorph)
+		minDegree: 70;
+		maxDegree: 110;
+		numMarks: 10;
+		offset: 0.0 @ -1.0;
+		rNeedleTip: 0.8;
+		rNeedleEnd: 0.0;
+		rMarkTop1: 0.65;
+		rMarkTop2: 0.7;
+		rMarkBottom1: 0.6;
+		rMarkBottom2: 0.6;
+		yourself
+]
+
+{ #category : #'instance creation' }
+TypeLMeterRadialUnit class >> smallRightRadialFor: aTypeLMeterMorph [
 	^ (self for: aTypeLMeterMorph)
 		minDegree: -10;
 		maxDegree: 20;

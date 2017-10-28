@@ -66,6 +66,41 @@ TypeLMeterMorph >> bottomColor: anObject [
 	bottomColor := anObject
 ]
 
+{ #category : #utilities }
+TypeLMeterMorph >> createBottomLeftRadialUnit [
+	^ TypeLMeterRadialUnit bottomLeftRadialFor: self
+]
+
+{ #category : #utilities }
+TypeLMeterMorph >> createBottomRadialUnit [
+	^ TypeLMeterRadialUnit bottomRadialFor: self
+]
+
+{ #category : #utilities }
+TypeLMeterMorph >> createBottomRightRadialUnit [
+	^ TypeLMeterRadialUnit bottomRightRadialFor: self
+]
+
+{ #category : #utilities }
+TypeLMeterMorph >> createCenterRadialUnit [
+	^ TypeLMeterRadialUnit centerRadialFor: self
+]
+
+{ #category : #utilities }
+TypeLMeterMorph >> createRightRadialUnit [
+	^ TypeLMeterRadialUnit rightRadialFor: self
+]
+
+{ #category : #utilities }
+TypeLMeterMorph >> createSmallBottomRadialUnit [
+	^ TypeLMeterRadialUnit smallBottomRadialFor: self
+]
+
+{ #category : #utilities }
+TypeLMeterMorph >> createSmallRightRadialUnit [
+	^ TypeLMeterRadialUnit smallRightRadialFor: self
+]
+
 { #category : #defaults }
 TypeLMeterMorph >> defaultBezelWidth [
 	^ 10

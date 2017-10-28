@@ -51,6 +51,30 @@ TypeL3MeterMorph class >> openHeartbeatInWorld [
 			(Delay forMilliseconds: 100) wait ] ] forkAt: Processor userBackgroundPriority
 ]
 
+{ #category : #utilities }
+TypeL3MeterMorph class >> openMouseEventInWorld [
+	"TypeL3MeterMorph openMouseEventInWorld"
+
+	| morph |
+	morph := self new.
+	morph
+		unit1: morph createBottomLeftRadialUnit;
+		unit2: morph createBottomRightRadialUnit;
+		unit3: morph createSmallBottomRadialUnit.
+	morph openInWorld.
+	[ | value3 |
+	value3 := 0.0.
+	[ morph owner notNil ]
+		whileTrue: [ ActiveHand anyButtonPressed
+				ifTrue: [ value3 := 1.0 ].
+			morph
+				value1: ActiveHand position x asFloat / World width asFloat;
+				value2: ActiveHand position y asFloat / World height asFloat;
+				value3: value3.
+			value3 := value3 * 0.7.
+			(Delay forMilliseconds: 100) wait ] ] forkAt: Processor userBackgroundPriority
+]
+
 { #category : #defaults }
 TypeL3MeterMorph >> defaultUnit3 [
 	^ TypeLMeterRadialUnit rightRadialFor: self
