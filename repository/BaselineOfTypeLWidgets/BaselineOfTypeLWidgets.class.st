@@ -1,12 +1,12 @@
 Class {
-	#name : 'BaselineOfTypeL',
+	#name : 'BaselineOfTypeLWidgets',
 	#superclass : 'BaselineOf',
-	#category : 'BaselineOfTypeL',
-	#package : 'BaselineOfTypeL'
+	#category : 'BaselineOfTypeLWidgets',
+	#package : 'BaselineOfTypeLWidgets'
 }
 
 { #category : 'baselines' }
-BaselineOfTypeL >> baseline: spec [
+BaselineOfTypeLWidgets >> baseline: spec [
 
 	<baseline>
 	spec for: #common do: [
