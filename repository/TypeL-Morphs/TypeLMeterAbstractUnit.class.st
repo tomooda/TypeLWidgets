@@ -1,25 +1,26 @@
 Class {
-	#name : #TypeLMeterAbstractUnit,
-	#superclass : #Object,
+	#name : 'TypeLMeterAbstractUnit',
+	#superclass : 'Object',
 	#instVars : [
 		'morph'
 	],
-	#category : #TypeL-Morphs
+	#category : 'TypeL-Morphs',
+	#package : 'TypeL-Morphs'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TypeLMeterAbstractUnit class >> for: aTypeLMeterMorph [
 	^ self new
 		morph: aTypeLMeterMorph;
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TypeLMeterAbstractUnit >> morph [
 	^ morph
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TypeLMeterAbstractUnit >> morph: aTypeLMeterMorph [
 	morph := aTypeLMeterMorph
 ]

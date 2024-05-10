@@ -1,1 +1,1 @@
-Package { #name : #TypeL-Morphs }
+Package { #name : 'TypeL-Morphs' }

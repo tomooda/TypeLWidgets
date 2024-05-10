@@ -1,6 +1,6 @@
 Class {
-	#name : #TypeLMeterRadialUnit,
-	#superclass : #TypeLMeterAbstractUnit,
+	#name : 'TypeLMeterRadialUnit',
+	#superclass : 'TypeLMeterAbstractUnit',
 	#instVars : [
 		'minDegree',
 		'maxDegree',
@@ -13,10 +13,11 @@ Class {
 		'rMarkBottom2',
 		'numMarks'
 	],
-	#category : #TypeL-Morphs
+	#category : 'TypeL-Morphs',
+	#package : 'TypeL-Morphs'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TypeLMeterRadialUnit class >> bottomLeftRadialFor: aTypeLMeterMorph [
 	^ (self for: aTypeLMeterMorph)
 		minDegree: 110;
@@ -31,7 +32,7 @@ TypeLMeterRadialUnit class >> bottomLeftRadialFor: aTypeLMeterMorph [
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TypeLMeterRadialUnit class >> bottomRadialFor: aTypeLMeterMorph [
 	^ (self for: aTypeLMeterMorph)
 		minDegree: 60;
@@ -46,7 +47,7 @@ TypeLMeterRadialUnit class >> bottomRadialFor: aTypeLMeterMorph [
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TypeLMeterRadialUnit class >> bottomRightRadialFor: aTypeLMeterMorph [
 	^ (self for: aTypeLMeterMorph)
 		minDegree: 20;
@@ -61,7 +62,7 @@ TypeLMeterRadialUnit class >> bottomRightRadialFor: aTypeLMeterMorph [
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TypeLMeterRadialUnit class >> centerRadialFor: aTypeLMeterMorph [
 	^ (self for: aTypeLMeterMorph)
 		minDegree: 5;
@@ -70,7 +71,7 @@ TypeLMeterRadialUnit class >> centerRadialFor: aTypeLMeterMorph [
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TypeLMeterRadialUnit class >> rightRadialFor: aTypeLMeterMorph [
 	^ (self for: aTypeLMeterMorph)
 		minDegree: -30;
@@ -85,7 +86,7 @@ TypeLMeterRadialUnit class >> rightRadialFor: aTypeLMeterMorph [
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TypeLMeterRadialUnit class >> smallBottomRadialFor: aTypeLMeterMorph [
 	^ (self for: aTypeLMeterMorph)
 		minDegree: 70;
@@ -101,7 +102,7 @@ TypeLMeterRadialUnit class >> smallBottomRadialFor: aTypeLMeterMorph [
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TypeLMeterRadialUnit class >> smallRightRadialFor: aTypeLMeterMorph [
 	^ (self for: aTypeLMeterMorph)
 		minDegree: -10;
@@ -117,62 +118,62 @@ TypeLMeterRadialUnit class >> smallRightRadialFor: aTypeLMeterMorph [
 		yourself
 ]
 
-{ #category : #defaults }
+{ #category : 'defaults' }
 TypeLMeterRadialUnit >> defaultMaxDegree [
 	^ 175
 ]
 
-{ #category : #defaults }
+{ #category : 'defaults' }
 TypeLMeterRadialUnit >> defaultMinDegree [
 	^ 5
 ]
 
-{ #category : #defaults }
+{ #category : 'defaults' }
 TypeLMeterRadialUnit >> defaultNumMarks [
 	^ 100
 ]
 
-{ #category : #defaults }
+{ #category : 'defaults' }
 TypeLMeterRadialUnit >> defaultOffset [
 	^ 0 @ 0
 ]
 
-{ #category : #defaults }
+{ #category : 'defaults' }
 TypeLMeterRadialUnit >> defaultRMarkBottom1 [
 	^ 0.88
 ]
 
-{ #category : #defaults }
+{ #category : 'defaults' }
 TypeLMeterRadialUnit >> defaultRMarkBottom2 [
 	^ 0.80
 ]
 
-{ #category : #defaults }
+{ #category : 'defaults' }
 TypeLMeterRadialUnit >> defaultRMarkTop1 [
 	^ 0.9
 ]
 
-{ #category : #defaults }
+{ #category : 'defaults' }
 TypeLMeterRadialUnit >> defaultRMarkTop2 [
 	^ 0.9
 ]
 
-{ #category : #defaults }
+{ #category : 'defaults' }
 TypeLMeterRadialUnit >> defaultRNeedleEnd [
 	^ -0.2
 ]
 
-{ #category : #defaults }
+{ #category : 'defaults' }
 TypeLMeterRadialUnit >> defaultRNeedleTip [
 	^ 0.9
 ]
 
-{ #category : #defaults }
+{ #category : 'defaults' }
 TypeLMeterRadialUnit >> defaultScale [
 	^ 0.9
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 TypeLMeterRadialUnit >> drawMarksOn: aCanvas color: aColor [
 	0 to: self numMarks do: [ :t | 
 		aCanvas
@@ -193,7 +194,7 @@ TypeLMeterRadialUnit >> drawMarksOn: aCanvas color: aColor [
 			color: aColor ]
 ]
 
-{ #category : #drawing }
+{ #category : 'drawing' }
 TypeLMeterRadialUnit >> drawNeedleOn: aCanvas value: aNumber color: aColor [
 	aCanvas
 		line: (self pointAt: aNumber scale: self rNeedleTip)
@@ -202,47 +203,47 @@ TypeLMeterRadialUnit >> drawNeedleOn: aCanvas value: aNumber color: aColor [
 		color: aColor
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TypeLMeterRadialUnit >> maxDegree [
 	^ maxDegree ifNil: [ maxDegree := self defaultMaxDegree ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TypeLMeterRadialUnit >> maxDegree: aNumber [
 	maxDegree := aNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TypeLMeterRadialUnit >> minDegree [
 	^ minDegree ifNil: [ minDegree := self defaultMinDegree ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TypeLMeterRadialUnit >> minDegree: aNumber [
 	minDegree := aNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TypeLMeterRadialUnit >> numMarks [
 	^ numMarks ifNil: [ numMarks := self defaultNumMarks ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TypeLMeterRadialUnit >> numMarks: anInteger [
 	numMarks := anInteger
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TypeLMeterRadialUnit >> offset [
 	^ offset ifNil: [ offset := self defaultOffset ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TypeLMeterRadialUnit >> offset: aPoint [
 	offset := aPoint
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TypeLMeterRadialUnit >> pointAt: aNormalizedNumber scale: aNumber [
 	| theta width height |
 	theta := self thetaAt: aNormalizedNumber.
@@ -254,67 +255,67 @@ TypeLMeterRadialUnit >> pointAt: aNormalizedNumber scale: aNumber [
 				+ self morph depth) + self morph ovalOrigin
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TypeLMeterRadialUnit >> rMarkBottom1 [
 	^ rMarkBottom1 ifNil: [ rMarkBottom1 := self defaultRMarkBottom1 ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TypeLMeterRadialUnit >> rMarkBottom1: aNumber [
 	^ rMarkBottom1 := aNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TypeLMeterRadialUnit >> rMarkBottom2 [
 	^ rMarkBottom2 ifNil: [ rMarkBottom2 := self defaultRMarkBottom2 ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TypeLMeterRadialUnit >> rMarkBottom2: aNumber [
 	^ rMarkBottom2 := aNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TypeLMeterRadialUnit >> rMarkTop1 [
 	^ rMarkTop1 ifNil: [ rMarkTop1 := self defaultRMarkTop1 ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TypeLMeterRadialUnit >> rMarkTop1: aNumber [
 	^ rMarkTop1 := aNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TypeLMeterRadialUnit >> rMarkTop2 [
 	^ rMarkTop2 ifNil: [ rMarkTop2 := self defaultRMarkTop2 ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TypeLMeterRadialUnit >> rMarkTop2: aNumber [
 	^ rMarkTop2 := aNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TypeLMeterRadialUnit >> rNeedleEnd [
 	^ rNeedleEnd ifNil: [ rNeedleEnd := self defaultRNeedleEnd ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TypeLMeterRadialUnit >> rNeedleEnd: aNumber [
 	^ rNeedleEnd := aNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TypeLMeterRadialUnit >> rNeedleTip [
 	^ rNeedleTip ifNil: [ rNeedleTip := self defaultRNeedleTip ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TypeLMeterRadialUnit >> rNeedleTip: aNumber [
 	^ rNeedleTip := aNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TypeLMeterRadialUnit >> thetaAt: aNormalizedValue [
 	^ Float pi
 		-
