@@ -4,6 +4,7 @@ Class {
 	#instVars : [
 		'meter',
 		'bezelWidth',
+		'bezelColor',
 		'depth',
 		'lineColor',
 		'sideColor',
@@ -22,6 +23,10 @@ TypeLRadialMeterSettingsPresenter class >> defaultLayout [
 		  add: (SpBoxLayout newHorizontal
 				   add: 'bezel width' width: 100;
 				   add: #bezelWidth)
+		  expand: false;
+		  add: (SpBoxLayout newHorizontal
+				   add: 'bezel color' width: 100;
+				   add: #bezelColor)
 		  expand: false;
 		  add: (SpBoxLayout newHorizontal
 				   add: 'knurling depth' width: 100;
@@ -64,6 +69,20 @@ TypeLRadialMeterSettingsPresenter class >> openOn: aTypeLMeterMorph [
 	^ self new
 		  meter: aTypeLMeterMorph;
 		  openAtPointer
+]
+
+{ #category : 'operations' }
+TypeLRadialMeterSettingsPresenter >> changeBezelColor [
+
+	meter ifNotNil: [
+		self newColorPicker
+			setColor: meter bezelColor;
+			whenColorChangedDo: [ :c |
+				bezelColor color: c.
+				meter
+					bezelColor: c;
+					changed ];
+			open ]
 ]
 
 { #category : 'operations' }
@@ -121,6 +140,7 @@ TypeLRadialMeterSettingsPresenter >> initializePresenters [
 			              meter ifNotNil: [
 					              meter bezelWidth: bezelWidth value.
 					              meter changed ] ].
+	bezelColor := self newButton action: [ self changeBezelColor ].
 	depth := self newSlider
 		         min: 10;
 		         max: 100;
@@ -134,26 +154,26 @@ TypeLRadialMeterSettingsPresenter >> initializePresenters [
 	sideColor := self newButton action: [ self changeSideColor ].
 	bottomColor := self newButton action: [ self changeBottomColor ].
 	widthSlider := self newSlider
-		         min: 100;
-		         max: 800;
-		         quantum: 100;
-		         value: 165;
-		         whenValueChangedDo: [
-			         meter ifNotNil: [ meter width: widthSlider value ] ].
+		               min: 100;
+		               max: 800;
+		               quantum: 100;
+		               value: 165;
+		               whenValueChangedDo: [
+			               meter ifNotNil: [ meter width: widthSlider value ] ].
 	heightSlider := self newSlider
-		          min: 100;
-		          max: 800;
-		          quantum: 100;
-		          value: 100;
-		          whenValueChangedDo: [
-			          meter ifNotNil: [ meter height: heightSlider value ] ]
+		                min: 100;
+		                max: 800;
+		                quantum: 100;
+		                value: 100;
+		                whenValueChangedDo: [
+			                meter ifNotNil: [ meter height: heightSlider value ] ]
 ]
 
 { #category : 'initialization' }
 TypeLRadialMeterSettingsPresenter >> initializeWindow: aSpWindowPresenter [
 
 	super initializeWindow: aSpWindowPresenter.
-	aSpWindowPresenter initialExtent: 400 @ 220
+	aSpWindowPresenter initialExtent: 400 @ 250
 ]
 
 { #category : 'accessing' }

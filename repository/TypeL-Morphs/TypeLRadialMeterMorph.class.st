@@ -9,7 +9,8 @@ Class {
 		'bezelWidth',
 		'knurlingForm',
 		'bezelForm',
-		'stencilForm'
+		'stencilForm',
+		'bezelColor'
 	],
 	#category : 'TypeL-Morphs',
 	#package : 'TypeL-Morphs'
@@ -81,6 +82,19 @@ TypeLRadialMeterMorph class >> worldMenu: aBuilder [
 ]
 
 { #category : 'accessing' }
+TypeLRadialMeterMorph >> bezelColor [
+
+	^ bezelColor
+]
+
+{ #category : 'accessing' }
+TypeLRadialMeterMorph >> bezelColor: aColor [
+
+	bezelColor := aColor.
+	self flushCacheForms
+]
+
+{ #category : 'accessing' }
 TypeLRadialMeterMorph >> bezelWidth [
 
 	^ bezelWidth
@@ -107,6 +121,18 @@ TypeLRadialMeterMorph >> bottomColor: anObject [
 ]
 
 { #category : 'defaults' }
+TypeLRadialMeterMorph >> defaultBezelColor [
+	"| desktopColor |
+	desktopColor := Smalltalk ui theme desktopColor.
+	^ Color
+		  h: desktopColor hue
+		  s: desktopColor saturation
+		  v: 1.0 - desktopColor brightness"
+
+	^ Smalltalk ui theme desktopColor mixed: 0.8 with: Color gray
+]
+
+{ #category : 'defaults' }
 TypeLRadialMeterMorph >> defaultBezelWidth [
 	^ 20
 ]
@@ -124,12 +150,13 @@ TypeLRadialMeterMorph >> defaultDepth [
 { #category : 'defaults' }
 TypeLRadialMeterMorph >> defaultLineColor [
 
-	^ Color black
+	^ Color darkGray
 ]
 
 { #category : 'defaults' }
 TypeLRadialMeterMorph >> defaultSideColor [
-	^ Color lightGray mixed: 0.1 with: Smalltalk ui theme backgroundColor
+
+	^ Color gray
 ]
 
 { #category : 'accessing' }
@@ -174,7 +201,7 @@ TypeLRadialMeterMorph >> drawBezelOn: aCanvas [
 						 @ (theta2 sin * ry2 + cy) asInteger).
 						((theta2 cos * rx3 + cx) asInteger
 						 @ (theta2 sin * ry3 + cy) asInteger) }
-				fillStyle: Color darkGray.
+				fillStyle: self bezelColor.
 			canvas
 				drawPolygon: {
 						((theta2 cos * rx1 + cx) asInteger
@@ -185,7 +212,7 @@ TypeLRadialMeterMorph >> drawBezelOn: aCanvas [
 						 @ (theta3 sin * ry3 + cy) asInteger).
 						((theta3 cos * rx1 + cx) asInteger
 						 @ (theta3 sin * ry1 + cy) asInteger) }
-				fillStyle: Color darkGray ] ].
+				fillStyle: self bezelColor ] ].
 	aCanvas paintImage: bezelForm at: 0 @ 0
 ]
 
@@ -271,7 +298,8 @@ TypeLRadialMeterMorph >> initialize [
 	lineColor := self defaultLineColor.
 	sideColor := self defaultSideColor.
 	bottomColor := self defaultBottomColor.
-	bezelWidth := self defaultBezelWidth
+	bezelWidth := self defaultBezelWidth.
+	bezelColor := self defaultBezelColor
 ]
 
 { #category : 'accessing' }
