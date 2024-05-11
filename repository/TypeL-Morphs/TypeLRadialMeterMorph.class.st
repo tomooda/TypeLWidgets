@@ -88,7 +88,9 @@ TypeLRadialMeterMorph >> bezelWidth [
 
 { #category : 'accessing' }
 TypeLRadialMeterMorph >> bezelWidth: aNumber [
-	bezelWidth := aNumber
+
+	bezelWidth := aNumber.
+	self flushCacheForms
 ]
 
 { #category : 'accessing' }
@@ -99,7 +101,9 @@ TypeLRadialMeterMorph >> bottomColor [
 
 { #category : 'accessing' }
 TypeLRadialMeterMorph >> bottomColor: anObject [
-	bottomColor := anObject
+
+	bottomColor := anObject.
+	self flushCacheForms
 ]
 
 { #category : 'defaults' }
@@ -136,13 +140,14 @@ TypeLRadialMeterMorph >> depth [
 
 { #category : 'accessing' }
 TypeLRadialMeterMorph >> depth: anObject [
-	depth := anObject
+
+	depth := anObject.
+	self flushCacheForms
 ]
 
 { #category : 'drawing' }
 TypeLRadialMeterMorph >> drawBezelOn: aCanvas [
 
-	self drawStencilOn: aCanvas.
 	bezelForm ifNil: [
 		| canvas cx rx1 rx2 rx3 cy ry1 ry2 ry3 |
 		bezelForm := Form extent: self extent depth: 32.
@@ -218,7 +223,7 @@ TypeLRadialMeterMorph >> drawKnurlingOn: aCanvas [
 				frameRectangle: (x - 1 @ (y + 5) extent: 6 @ (self depth - 10))
 				color: self lineColor ].
 		self drawTicksOn: c ].
-	aCanvas paintImage: knurlingForm at: 0 @ 0
+	aCanvas drawImage: knurlingForm at: 0 @ 0
 ]
 
 { #category : 'drawing' }
@@ -277,7 +282,15 @@ TypeLRadialMeterMorph >> lineColor [
 
 { #category : 'accessing' }
 TypeLRadialMeterMorph >> lineColor: anObject [
-	lineColor := anObject
+
+	lineColor := anObject.
+	self flushCacheForms
+]
+
+{ #category : 'user interface' }
+TypeLRadialMeterMorph >> openSettings [
+
+	TypeLRadialMeterSettingsPresenter openOn: self
 ]
 
 { #category : 'accessing' }
@@ -298,7 +311,9 @@ TypeLRadialMeterMorph >> sideColor [
 
 { #category : 'accessing' }
 TypeLRadialMeterMorph >> sideColor: anObject [
-	sideColor := anObject
+
+	sideColor := anObject.
+	self flushCacheForms
 ]
 
 { #category : 'private' }

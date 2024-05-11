@@ -51,7 +51,7 @@ TypeLMeterMorph >> drawOn: aCanvas [
 		form := Form extent: self extent depth: 32.
 		self flushCacheForms ].
 	canvas := form getCanvas.
-	canvas fillColor: Color transparent.
+	canvas fillColor: Smalltalk ui theme desktopColor.
 	self drawKnurlingOn: canvas.
 	self drawNeedlesOn: canvas.
 	self drawBezelOn: canvas.
@@ -68,6 +68,23 @@ TypeLMeterMorph >> drawTicksOn: aCanvas [
 TypeLMeterMorph >> flushCacheForms [
 
 	
+]
+
+{ #category : 'event handling' }
+TypeLMeterMorph >> handleMouseDown: anEvent [
+
+	anEvent wasHandled ifTrue: [ ^ self ].
+	anEvent yellowButtonPressed
+		ifTrue: [
+			anEvent wasHandled: true.
+			self openSettings ]
+		ifFalse: [ super handleMouseDown: anEvent ]
+]
+
+{ #category : 'event handling' }
+TypeLMeterMorph >> handlesMouseDown: event [
+
+	^ event yellowButtonPressed or: [ super handlesMouseDown: event ]
 ]
 
 { #category : 'initialization' }
@@ -118,6 +135,12 @@ TypeLMeterMorph >> newSmallBottomRadialUnit [
 TypeLMeterMorph >> newSmallRightRadialUnit [
 
 	^ units add: (TypeLMeterRadialUnit smallRightRadialFor: self)
+]
+
+{ #category : 'user interface' }
+TypeLMeterMorph >> openSettings [
+
+	^ self subclassResponsibility
 ]
 
 { #category : 'enumerating' }
